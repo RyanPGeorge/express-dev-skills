@@ -53,3 +53,4 @@ function index(req, res) {
     time: req.time
   });
 }
+

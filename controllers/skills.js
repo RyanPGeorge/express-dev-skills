@@ -12,27 +12,27 @@ module.exports = {
 
 function update(req, res) {
   req.body.done = !!req.body.done;
-  Todo.update(req.params.id, req.body);
+  Skill.update(req.params.id, req.body);
   res.redirect(`/skills/${req.params.id}`);
 }
 
 function edit(req, res) {
-  var todo = Todo.getOne(req.params.id);
+  var skill = Skill.getOne(req.params.id);
   res.render('skills/edit', {
-    todo,
+    skill,
     todoIdx: req.params.id
   });
 }
 
 function deleteSkill(req, res) {
-  Todo.deleteOne(req.params.id);
+  Skill.deleteOne(req.params.id);
   res.redirect('/skills');
 }
 
 function create(req, res) {
   console.log(req.body);
   req.body.done = false;
-  Todo.create(req.body);
+  Skill.create(req.body);
   res.redirect('/skills');
 }
 
@@ -42,14 +42,14 @@ function newSkill(req, res) {
 
 function show(req, res) {
   res.render('skills/show', {
-    todo: Todo.getOne(req.params.id),
-    todoNum: parseInt(req.params.id) + 1
+    skill: Skill.getOne(req.params.id),
+    skillNum: parseInt(req.params.id) + 1
   });
 }
 
 function index(req, res) {
   res.render('skills/index', {
-    todos: Todo.getAll(),
+    skills: Skill.getAll(),
     time: req.time
   });
 }

@@ -31,3 +31,4 @@ const skills = [
   function getAll() {
     return skills;
   }
+  

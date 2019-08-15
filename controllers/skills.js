@@ -20,7 +20,7 @@ function edit(req, res) {
   var skill = Skill.getOne(req.params.id);
   res.render('skills/edit', {
     skill,
-    todoIdx: req.params.id
+    skillIdx: req.params.id
   });
 }
 
